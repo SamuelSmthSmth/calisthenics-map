@@ -697,57 +697,96 @@ body {
    ══════════════════════════════════════════════════════ */
 @media (max-width: 768px) {
     :root {
-        --toolbar-h: 50px;
+        --toolbar-h: auto;
         --panel-w: 100%;
     }
 
     #toolbar {
-        padding: 0 12px;
+        flex-wrap: wrap;
+        padding: 10px 12px;
         gap: 8px;
     }
-    .toolbar-brand h1 {
-        font-size: 0.95rem;
+    .toolbar-brand {
+        flex: 1 1 auto;
     }
+    .toolbar-brand h1 {
+        font-size: 1rem;
+    }
+    .toolbar-actions {
+        flex: 0 0 auto;
+    }
+    .toolbar-search {
+        flex: 1 1 100%;
+        max-width: 100%;
+        order: 3;
+        margin-top: 2px;
+    }
+    .search-wrapper {
+        max-width: 100%;
+    }
+
     .btn-label {
         display: none;
     }
     .tool-btn {
-        padding: 6px 7px;
+        padding: 6px 8px;
     }
     #progress-bar-track {
-        width: 44px;
-    }
-    .search-wrapper {
-        max-width: 160px;
+        width: 50px;
     }
 
+    /* Bottom Sheet Details Panel */
     #detail-panel {
         width: 100%;
         border-left: none;
-        border-top: 1px solid var(--border-subtle);
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
         top: auto;
         bottom: 0;
-        height: 65vh;
-        border-radius: var(--r-lg) var(--r-lg) 0 0;
+        height: 75vh;
+        border-radius: 20px 20px 0 0;
+        box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.6);
+        padding-top: 16px;
+    }
+    #detail-panel::before {
+        content: '';
+        position: absolute;
+        top: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 4px;
+        border-radius: 2px;
+        background: rgba(255, 255, 255, 0.2);
     }
     #detail-panel.hidden {
         transform: translateY(100%);
     }
+    #panel-accent-bar {
+        display: none;
+    }
+    #close-panel {
+        top: 12px;
+        right: 12px;
+    }
 
+    /* Legend Carousel */
     #legend-panel {
         left: 8px;
         right: 8px;
-        bottom: 44px;
-        flex-wrap: wrap;
-        gap: 14px;
+        bottom: 12px;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 20px;
+        padding: 10px 14px;
+    }
+    #legend-panel::-webkit-scrollbar {
+        display: none;
     }
 }
 
 @media (max-width: 480px) {
-    .toolbar-search {
-        display: none;
-    }
-    #progress-wrap {
-        display: none;
+    /* Keep progress bar and search on very small screens now that they wrap! */
+    #progress-bar-track {
+        width: 36px;
     }
 }

@@ -37,7 +37,7 @@ let edgeList      = [];   // precomputed [{ from, to }]
 let completed     = new Set();
 
 let canvas, ctx, dpr;
-let camera       = { x: 0, y: 0, zoom: 1 };
+let camera       = { x: 0, y: 0, zoom: window.innerWidth < 768 ? 0.6 : 1 };
 let targetCamera = null;
 let hoveredNode  = null;
 let selectedNode = null;

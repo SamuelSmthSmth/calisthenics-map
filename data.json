@@ -1,14 +1,58 @@
 [
   {
-    "id": "standard-push-up",
-    "name": "Standard Push-Up",
+    "id": "incline-push-up",
+    "name": "Incline Push-Up",
     "category": "Push",
     "type": "dynamic",
     "tier": 1,
-    "description": "Fundamental horizontal pressing movement. Core tight, full range of motion.",
+    "description": "Hands elevated, easier than a standard push-up.",
     "prerequisites": [],
-    "unlocks": ["diamond-push-up", "pike-push-up", "bench-dip"],
-    "drills": ["Knee push-ups", "Incline push-ups", "Plank holds", "Scapular push-ups", "Negative push-ups"]
+    "drills": [
+      "Wall push-ups"
+    ],
+    "unlocks": [
+      "push-up"
+    ]
+  },
+  {
+    "id": "push-up",
+    "name": "Push-Up",
+    "category": "Push",
+    "type": "dynamic",
+    "tier": 1,
+    "description": "Standard horizontal push-up.",
+    "prerequisites": [
+      "incline-push-up"
+    ],
+    "drills": [
+      "Knee push-ups",
+      "Push-up negatives"
+    ],
+    "unlocks": [
+      "wide-push-up",
+      "diamond-push-up",
+      "spiderman-push-up",
+      "pseudo-planche-push-up",
+      "clap-push-up",
+      "bench-dip",
+      "pike-push-up",
+      "elbow-lever"
+    ]
+  },
+  {
+    "id": "wide-push-up",
+    "name": "Wide Push-Up",
+    "category": "Push",
+    "type": "dynamic",
+    "tier": 2,
+    "description": "Hands placed wider than shoulder width.",
+    "prerequisites": [
+      "push-up"
+    ],
+    "drills": [],
+    "unlocks": [
+      "archer-push-up"
+    ]
   },
   {
     "id": "diamond-push-up",
@@ -16,10 +60,44 @@
     "category": "Push",
     "type": "dynamic",
     "tier": 2,
-    "description": "Hands together under the chest. High triceps and inner chest activation.",
-    "prerequisites": ["standard-push-up"],
-    "unlocks": ["archer-push-up"],
-    "drills": ["Close-grip push-ups", "Tricep extensions", "Staggered push-ups"]
+    "description": "Hands together forming a diamond.",
+    "prerequisites": [
+      "push-up"
+    ],
+    "drills": [
+      "Close-grip push-up"
+    ],
+    "unlocks": [
+      "archer-push-up"
+    ]
+  },
+  {
+    "id": "spiderman-push-up",
+    "name": "Spiderman Push-Up",
+    "category": "Push",
+    "type": "dynamic",
+    "tier": 2,
+    "description": "Bringing one knee to the elbow while descending.",
+    "prerequisites": [
+      "push-up"
+    ],
+    "drills": [],
+    "unlocks": []
+  },
+  {
+    "id": "pseudo-planche-push-up",
+    "name": "Pseudo Planche Push-Up",
+    "category": "Push",
+    "type": "dynamic",
+    "tier": 3,
+    "description": "Leaning forward so hands are at waist level.",
+    "prerequisites": [
+      "push-up"
+    ],
+    "drills": [
+      "Planche leans"
+    ],
+    "unlocks": []
   },
   {
     "id": "archer-push-up",
@@ -27,10 +105,29 @@
     "category": "Push",
     "type": "dynamic",
     "tier": 3,
-    "description": "Lowering to one side with the opposite arm kept completely straight.",
-    "prerequisites": ["diamond-push-up"],
-    "unlocks": ["one-arm-push-up"],
-    "drills": ["Wide push-ups", "Typewriter push-ups", "Assisted archer push-ups", "Uneven push-ups"]
+    "description": "Lowering to one side with the other arm straight.",
+    "prerequisites": [
+      "wide-push-up",
+      "diamond-push-up"
+    ],
+    "drills": [],
+    "unlocks": [
+      "typewriter-push-up",
+      "one-arm-push-up"
+    ]
+  },
+  {
+    "id": "typewriter-push-up",
+    "name": "Typewriter Push-Up",
+    "category": "Push",
+    "type": "dynamic",
+    "tier": 4,
+    "description": "Moving side-to-side while staying low.",
+    "prerequisites": [
+      "archer-push-up"
+    ],
+    "drills": [],
+    "unlocks": []
   },
   {
     "id": "one-arm-push-up",
@@ -38,54 +135,76 @@
     "category": "Push",
     "type": "dynamic",
     "tier": 4,
-    "description": "Strict push-up on one arm with hips kept as square to the floor as possible.",
-    "prerequisites": ["archer-push-up"],
-    "unlocks": [],
-    "drills": ["Incline one-arm push-ups", "One-arm negatives", "Straddle one-arm push-ups", "Banded one-arm push-ups"]
+    "description": "Strict one-arm push-up.",
+    "prerequisites": [
+      "archer-push-up"
+    ],
+    "drills": [
+      "Straddle OAPU",
+      "Incline OAPU"
+    ],
+    "unlocks": []
   },
   {
-    "id": "pike-push-up",
-    "name": "Pike Push-Up",
+    "id": "clap-push-up",
+    "name": "Clap Push-Up",
     "category": "Push",
     "type": "dynamic",
     "tier": 2,
-    "description": "Hips high in an inverted V. Shoulders bear the majority of the weight.",
-    "prerequisites": ["standard-push-up"],
-    "unlocks": ["wall-handstand-push-up"],
-    "drills": ["Downward dog holds", "Elevated pike push-ups", "Dumbbell overhead press"]
+    "description": "Exploding up to clap hands.",
+    "prerequisites": [
+      "push-up"
+    ],
+    "drills": [
+      "Explosive push-ups"
+    ],
+    "unlocks": [
+      "behind-back-clap",
+      "superman-push-up"
+    ]
   },
   {
-    "id": "wall-handstand-push-up",
-    "name": "Wall Handstand Push-Up",
+    "id": "behind-back-clap",
+    "name": "Behind Back Clap",
     "category": "Push",
     "type": "dynamic",
     "tier": 3,
-    "description": "Inverted push-up using a wall for balance. Chest-to-wall or back-to-wall.",
-    "prerequisites": ["pike-push-up", "freestanding-handstand"],
-    "unlocks": ["freestanding-hspu"],
-    "drills": ["Wall handstand holds", "HSPU negatives", "Handstand shoulder taps", "Elevated deep pike push-ups"]
+    "description": "Clapping hands behind the back.",
+    "prerequisites": [
+      "clap-push-up"
+    ],
+    "drills": [],
+    "unlocks": []
   },
   {
-    "id": "freestanding-hspu",
-    "name": "Freestanding HSPU",
+    "id": "superman-push-up",
+    "name": "Superman Push-Up",
     "category": "Push",
-    "type": "balance",
+    "type": "dynamic",
     "tier": 4,
-    "description": "Unassisted handstand push-up requiring immense pressing strength and balance.",
-    "prerequisites": ["wall-handstand-push-up"],
-    "unlocks": ["90-degree-push-up"],
-    "drills": ["Partial range of motion HSPU", "Freestanding negatives", "Handstand balance drills"]
+    "description": "Full body leaves the floor, arms extended.",
+    "prerequisites": [
+      "clap-push-up"
+    ],
+    "drills": [
+      "Flying push-ups"
+    ],
+    "unlocks": [
+      "aztec-push-up"
+    ]
   },
   {
-    "id": "90-degree-push-up",
-    "name": "90 Degree Push-Up",
+    "id": "aztec-push-up",
+    "name": "Aztec Push-Up",
     "category": "Push",
     "type": "dynamic",
     "tier": 5,
-    "description": "Lower from a handstand into a flat full planche, then press back up.",
-    "prerequisites": ["freestanding-hspu", "full-planche"],
-    "unlocks": [],
-    "drills": ["Planche to handstand press", "90 degree negatives", "Deep planche push-ups", "Hollowback press"]
+    "description": "Touching toes with hands while entirely airborne.",
+    "prerequisites": [
+      "superman-push-up"
+    ],
+    "drills": [],
+    "unlocks": []
   },
   {
     "id": "bench-dip",
@@ -93,10 +212,31 @@
     "category": "Push",
     "type": "dynamic",
     "tier": 1,
-    "description": "Triceps-focused dip using a bench or chair behind the back.",
-    "prerequisites": ["standard-push-up"],
-    "unlocks": ["parallel-bar-dip"],
-    "drills": ["Straight leg bench dips", "Bent knee bench dips", "Tricep kickbacks"]
+    "description": "Hands on bench behind back.",
+    "prerequisites": [
+      "push-up"
+    ],
+    "drills": [],
+    "unlocks": [
+      "straight-bar-dip",
+      "parallel-bar-dip"
+    ]
+  },
+  {
+    "id": "straight-bar-dip",
+    "name": "Straight Bar Dip",
+    "category": "Push",
+    "type": "dynamic",
+    "tier": 2,
+    "description": "Dipping on a single horizontal bar.",
+    "prerequisites": [
+      "bench-dip"
+    ],
+    "drills": [],
+    "unlocks": [
+      "korean-dip",
+      "bar-muscle-up"
+    ]
   },
   {
     "id": "parallel-bar-dip",
@@ -104,21 +244,64 @@
     "category": "Push",
     "type": "dynamic",
     "tier": 2,
-    "description": "Standard bodyweight dip on parallel bars leaning slightly forward.",
-    "prerequisites": ["bench-dip"],
-    "unlocks": ["ring-dip", "muscle-up"],
-    "drills": ["Support holds", "Dip negatives", "Banded dips", "Straight bar dips"]
+    "description": "Dipping on two parallel bars.",
+    "prerequisites": [
+      "bench-dip"
+    ],
+    "drills": [
+      "Dip negatives"
+    ],
+    "unlocks": [
+      "russian-dip",
+      "ring-dip"
+    ]
+  },
+  {
+    "id": "russian-dip",
+    "name": "Russian Dip",
+    "category": "Push",
+    "type": "dynamic",
+    "tier": 3,
+    "description": "Dipping from elbows (forearms on bars) to full extension.",
+    "prerequisites": [
+      "parallel-bar-dip"
+    ],
+    "drills": [],
+    "unlocks": [
+      "impossible-dip",
+      "slow-bar-muscle-up"
+    ]
+  },
+  {
+    "id": "korean-dip",
+    "name": "Korean Dip",
+    "category": "Push",
+    "type": "dynamic",
+    "tier": 4,
+    "description": "Dipping on a straight bar with the bar behind the back.",
+    "prerequisites": [
+      "straight-bar-dip"
+    ],
+    "drills": [],
+    "unlocks": []
   },
   {
     "id": "ring-dip",
     "name": "Ring Dip",
     "category": "Push",
-    "type": "balance",
+    "type": "dynamic",
     "tier": 3,
-    "description": "Dips performed on gymnastics rings, requiring heavy stabilizer activation.",
-    "prerequisites": ["parallel-bar-dip"],
-    "unlocks": ["bulgarian-ring-dip", "strict-ring-muscle-up"],
-    "drills": ["Ring support holds (RTO)", "Banded ring dips", "Ring push-ups", "Ring dip negatives"]
+    "description": "Dipping on unstable rings.",
+    "prerequisites": [
+      "parallel-bar-dip"
+    ],
+    "drills": [
+      "Ring support"
+    ],
+    "unlocks": [
+      "bulgarian-ring-dip",
+      "ring-muscle-up"
+    ]
   },
   {
     "id": "bulgarian-ring-dip",
@@ -126,87 +309,27 @@
     "category": "Push",
     "type": "dynamic",
     "tier": 4,
-    "description": "Ring dips with elbows flared extremely wide to mimic iron cross mechanics.",
-    "prerequisites": ["ring-dip"],
-    "unlocks": [],
-    "drills": ["Wide ring push-ups", "Ring flyes", "Assisted iron cross holds"]
+    "description": "Wide ring dip, arms flared.",
+    "prerequisites": [
+      "ring-dip"
+    ],
+    "drills": [],
+    "unlocks": []
   },
   {
-    "id": "frog-stand",
-    "name": "Frog Stand",
+    "id": "impossible-dip",
+    "name": "Impossible Dip",
     "category": "Push",
-    "type": "balance",
-    "tier": 1,
-    "description": "Balance on hands with bent elbows resting inside the knees.",
-    "prerequisites": [],
-    "unlocks": ["crow-stand", "tuck-planche"],
-    "drills": ["Wrist conditioning", "Plank leans", "Yoga crow pose"]
-  },
-  {
-    "id": "crow-stand",
-    "name": "Crow Stand",
-    "category": "Push",
-    "type": "balance",
-    "tier": 2,
-    "description": "Similar to frog stand but arms are completely locked straight.",
-    "prerequisites": ["frog-stand"],
-    "unlocks": ["handstand-press"],
-    "drills": ["Frog stand to crow press", "Straight arm planks", "Scapular protraction holds"]
-  },
-  {
-    "id": "tuck-planche",
-    "name": "Tuck Planche",
-    "category": "Push",
-    "type": "static",
-    "tier": 2,
-    "description": "Float the hips off the ground with knees tucked, arms locked out.",
-    "prerequisites": ["frog-stand"],
-    "unlocks": ["advanced-tuck-planche"],
-    "drills": ["Planche leans", "Pseudo planche push-ups", "L-sit to tuck planche swings", "Banded tuck planche"]
-  },
-  {
-    "id": "advanced-tuck-planche",
-    "name": "Adv. Tuck Planche",
-    "category": "Push",
-    "type": "static",
-    "tier": 3,
-    "description": "Flatten the back so hips are parallel to shoulders, knees remain bent.",
-    "prerequisites": ["tuck-planche"],
-    "unlocks": ["straddle-planche"],
-    "drills": ["Tuck planche push-ups", "Advanced tuck leans", "Dragon flags", "Banded advanced tuck"]
-  },
-  {
-    "id": "straddle-planche",
-    "name": "Straddle Planche",
-    "category": "Push",
-    "type": "static",
-    "tier": 4,
-    "description": "Body parallel to ground, legs fully extended and split wide.",
-    "prerequisites": ["advanced-tuck-planche"],
-    "unlocks": ["full-planche"],
-    "drills": ["Straddle planche kicks", "Straddle planche push-ups", "Banded straddle holds", "Heavy planche leans"]
-  },
-  {
-    "id": "full-planche",
-    "name": "Full Planche",
-    "category": "Push",
-    "type": "static",
-    "tier": 5,
-    "description": "Legs together, body perfectly straight and floating parallel to the floor.",
-    "prerequisites": ["straddle-planche"],
-    "unlocks": ["maltese", "90-degree-push-up"],
-    "drills": ["Full planche negatives", "Half-lay planche", "Full planche presses", "Ankle weighted straddle"]
-  },
-  {
-    "id": "maltese",
-    "name": "Maltese",
-    "category": "Push",
-    "type": "static",
-    "tier": 5,
-    "description": "Extra wide planche grip hovering inches off the floor. Immense bicep torque.",
-    "prerequisites": ["full-planche"],
-    "unlocks": [],
-    "drills": ["Wide planche leans", "Maltese press with bands", "Dumbbell maltese flyes"]
+    "type": "dynamic",
+    "tier": 6,
+    "description": "Leaning back completely with forearms flat on the bars.",
+    "prerequisites": [
+      "russian-dip"
+    ],
+    "drills": [
+      "Tricep extensions"
+    ],
+    "unlocks": []
   },
   {
     "id": "wall-handstand",
@@ -214,10 +337,29 @@
     "category": "Push",
     "type": "balance",
     "tier": 1,
-    "description": "Learn to stack the joints upside down using a wall for support.",
+    "description": "Handstand supported by a wall.",
     "prerequisites": [],
-    "unlocks": ["freestanding-handstand"],
-    "drills": ["Chest-to-wall walks", "Hollow body holds", "Wrist mobility routines"]
+    "drills": [],
+    "unlocks": [
+      "freestanding-handstand",
+      "wall-hspu",
+      "straddle-human-flag"
+    ]
+  },
+  {
+    "id": "pike-push-up",
+    "name": "Pike Push-Up",
+    "category": "Push",
+    "type": "dynamic",
+    "tier": 2,
+    "description": "Hips high, mimicking vertical press.",
+    "prerequisites": [
+      "push-up"
+    ],
+    "drills": [],
+    "unlocks": [
+      "wall-hspu"
+    ]
   },
   {
     "id": "freestanding-handstand",
@@ -225,32 +367,94 @@
     "category": "Push",
     "type": "balance",
     "tier": 2,
-    "description": "Unassisted vertical balance focusing on fingertip pressure and core alignment.",
-    "prerequisites": ["wall-handstand"],
-    "unlocks": ["wall-handstand-push-up", "handstand-press", "one-arm-handstand"],
-    "drills": ["Heel pulls", "Toe pulls", "Kick-ups", "Scissor leg balances"]
+    "description": "Unaided handstand.",
+    "prerequisites": [
+      "wall-handstand"
+    ],
+    "drills": [],
+    "unlocks": [
+      "freestanding-hspu",
+      "one-arm-handstand",
+      "tuck-press"
+    ]
   },
   {
-    "id": "handstand-press",
-    "name": "Handstand Press",
+    "id": "wall-hspu",
+    "name": "Wall HSPU",
     "category": "Push",
     "type": "dynamic",
     "tier": 3,
-    "description": "Pressing smoothly from feet on the floor directly up into a handstand.",
-    "prerequisites": ["freestanding-handstand", "crow-stand"],
-    "unlocks": ["stalder-press"],
-    "drills": ["Press negatives", "Tuck presses", "Straddle press with wall", "Pike flexibility work"]
+    "description": "Handstand push-up against the wall.",
+    "prerequisites": [
+      "wall-handstand",
+      "pike-push-up"
+    ],
+    "drills": [],
+    "unlocks": [
+      "freestanding-hspu"
+    ]
   },
   {
-    "id": "stalder-press",
-    "name": "Stalder Press",
+    "id": "freestanding-hspu",
+    "name": "Freestanding HSPU",
     "category": "Push",
     "type": "dynamic",
     "tier": 4,
-    "description": "Start sitting in a straddle L-sit on the floor, press directly to handstand.",
-    "prerequisites": ["handstand-press"],
-    "unlocks": [],
-    "drills": ["L-sit to press", "Stalder press negatives", "Extreme pancake stretching"]
+    "description": "Unaided handstand push-up.",
+    "prerequisites": [
+      "wall-hspu",
+      "freestanding-handstand"
+    ],
+    "drills": [],
+    "unlocks": [
+      "deep-hspu",
+      "90-degree-push-up",
+      "inverted-cross"
+    ]
+  },
+  {
+    "id": "deep-hspu",
+    "name": "Deep HSPU",
+    "category": "Push",
+    "type": "dynamic",
+    "tier": 5,
+    "description": "HSPU on parallettes with extreme depth.",
+    "prerequisites": [
+      "freestanding-hspu"
+    ],
+    "drills": [],
+    "unlocks": [
+      "one-arm-hspu"
+    ]
+  },
+  {
+    "id": "90-degree-push-up",
+    "name": "90 Degree Push-Up",
+    "category": "Push",
+    "type": "dynamic",
+    "tier": 5,
+    "description": "HSPU to bent-arm planche and back up.",
+    "prerequisites": [
+      "freestanding-hspu",
+      "full-planche"
+    ],
+    "drills": [],
+    "unlocks": [
+      "tiger-bend"
+    ]
+  },
+  {
+    "id": "tiger-bend",
+    "name": "Tiger Bend",
+    "category": "Push",
+    "type": "dynamic",
+    "tier": 6,
+    "description": "Lowering to forearm stand and pressing back to handstand.",
+    "prerequisites": [
+      "90-degree-push-up"
+    ],
+    "drills": [],
+    "unlocks": []
   },
   {
     "id": "one-arm-handstand",
@@ -258,32 +462,325 @@
     "category": "Push",
     "type": "balance",
     "tier": 5,
-    "description": "Shift center of gravity to balance perfectly on a single palm.",
-    "prerequisites": ["freestanding-handstand"],
-    "unlocks": [],
-    "drills": ["Wall one-arm holds", "Fingertip shifts", "Straddle handstand block walks", "Flagging drills"]
+    "description": "Handstand on a single arm.",
+    "prerequisites": [
+      "freestanding-handstand"
+    ],
+    "drills": [
+      "Fingertip OAH"
+    ],
+    "unlocks": [
+      "one-arm-hspu"
+    ]
   },
   {
-    "id": "australian-pull-up",
-    "name": "Australian Pull-Up",
+    "id": "one-arm-hspu",
+    "name": "One Arm HSPU",
+    "category": "Push",
+    "type": "dynamic",
+    "tier": 6,
+    "description": "Handstand push-up on a single arm.",
+    "prerequisites": [
+      "deep-hspu",
+      "one-arm-handstand"
+    ],
+    "drills": [],
+    "unlocks": []
+  },
+  {
+    "id": "frog-stand",
+    "name": "Frog Stand",
+    "category": "Push",
+    "type": "balance",
+    "tier": 1,
+    "description": "Knees resting on elbows.",
+    "prerequisites": [],
+    "drills": [],
+    "unlocks": [
+      "crow-stand",
+      "tuck-planche"
+    ]
+  },
+  {
+    "id": "crow-stand",
+    "name": "Crow Stand",
+    "category": "Push",
+    "type": "balance",
+    "tier": 2,
+    "description": "Like frog stand but with straight arms.",
+    "prerequisites": [
+      "frog-stand"
+    ],
+    "drills": [],
+    "unlocks": [
+      "tuck-press"
+    ]
+  },
+  {
+    "id": "elbow-lever",
+    "name": "Elbow Lever",
+    "category": "Push",
+    "type": "balance",
+    "tier": 2,
+    "description": "Body horizontal resting on elbows.",
+    "prerequisites": [
+      "push-up"
+    ],
+    "drills": [],
+    "unlocks": []
+  },
+  {
+    "id": "tuck-planche",
+    "name": "Tuck Planche",
+    "category": "Push",
+    "type": "static",
+    "tier": 2,
+    "description": "Planche with knees tucked to chest.",
+    "prerequisites": [
+      "frog-stand"
+    ],
+    "drills": [],
+    "unlocks": [
+      "adv-tuck-planche"
+    ]
+  },
+  {
+    "id": "adv-tuck-planche",
+    "name": "Adv. Tuck Planche",
+    "category": "Push",
+    "type": "static",
+    "tier": 3,
+    "description": "Tuck planche with flat back.",
+    "prerequisites": [
+      "tuck-planche"
+    ],
+    "drills": [],
+    "unlocks": [
+      "straddle-planche"
+    ]
+  },
+  {
+    "id": "straddle-planche",
+    "name": "Straddle Planche",
+    "category": "Push",
+    "type": "static",
+    "tier": 4,
+    "description": "Planche with legs wide.",
+    "prerequisites": [
+      "adv-tuck-planche"
+    ],
+    "drills": [],
+    "unlocks": [
+      "full-planche"
+    ]
+  },
+  {
+    "id": "full-planche",
+    "name": "Full Planche",
+    "category": "Push",
+    "type": "static",
+    "tier": 5,
+    "description": "Perfectly straight planche.",
+    "prerequisites": [
+      "straddle-planche"
+    ],
+    "drills": [],
+    "unlocks": [
+      "90-degree-push-up",
+      "maltese",
+      "planche-press"
+    ]
+  },
+  {
+    "id": "maltese",
+    "name": "Maltese",
+    "category": "Push",
+    "type": "static",
+    "tier": 6,
+    "description": "Planche with very wide grip.",
+    "prerequisites": [
+      "full-planche"
+    ],
+    "drills": [],
+    "unlocks": []
+  },
+  {
+    "id": "planche-press",
+    "name": "Planche Press",
+    "category": "Push",
+    "type": "dynamic",
+    "tier": 6,
+    "description": "Pressing from full planche to handstand.",
+    "prerequisites": [
+      "full-planche"
+    ],
+    "drills": [],
+    "unlocks": []
+  },
+  {
+    "id": "tuck-press",
+    "name": "Tuck Press",
+    "category": "Push",
+    "type": "dynamic",
+    "tier": 3,
+    "description": "Tucked press to handstand.",
+    "prerequisites": [
+      "freestanding-handstand",
+      "crow-stand"
+    ],
+    "drills": [],
+    "unlocks": [
+      "straddle-press",
+      "pike-press"
+    ]
+  },
+  {
+    "id": "straddle-press",
+    "name": "Straddle Press",
+    "category": "Push",
+    "type": "dynamic",
+    "tier": 4,
+    "description": "Straddle press to handstand.",
+    "prerequisites": [
+      "tuck-press"
+    ],
+    "drills": [],
+    "unlocks": [
+      "stalder-press"
+    ]
+  },
+  {
+    "id": "pike-press",
+    "name": "Pike Press",
+    "category": "Push",
+    "type": "dynamic",
+    "tier": 4,
+    "description": "Straight body press to handstand.",
+    "prerequisites": [
+      "tuck-press"
+    ],
+    "drills": [],
+    "unlocks": [
+      "zombie-press"
+    ]
+  },
+  {
+    "id": "stalder-press",
+    "name": "Stalder Press",
+    "category": "Push",
+    "type": "dynamic",
+    "tier": 5,
+    "description": "From straddle L-sit to handstand.",
+    "prerequisites": [
+      "straddle-press",
+      "v-sit"
+    ],
+    "drills": [],
+    "unlocks": []
+  },
+  {
+    "id": "zombie-press",
+    "name": "Zombie Press",
+    "category": "Push",
+    "type": "dynamic",
+    "tier": 6,
+    "description": "Pike press with arms starting straight ahead (no momentum).",
+    "prerequisites": [
+      "pike-press"
+    ],
+    "drills": [],
+    "unlocks": []
+  },
+  {
+    "id": "australian-row",
+    "name": "Australian Row",
     "category": "Pull",
     "type": "dynamic",
     "tier": 1,
-    "description": "Horizontal bodyweight rows underneath a low bar or rings.",
+    "description": "Horizontal body row.",
     "prerequisites": [],
-    "unlocks": ["standard-pull-up"],
-    "drills": ["Scapular retractions", "Ring rows", "Dead hangs", "Bent over rows"]
+    "drills": [],
+    "unlocks": [
+      "chin-up",
+      "skin-the-cat"
+    ]
   },
   {
-    "id": "standard-pull-up",
-    "name": "Standard Pull-Up",
+    "id": "chin-up",
+    "name": "Chin-Up",
+    "category": "Pull",
+    "type": "dynamic",
+    "tier": 1,
+    "description": "Underhand grip pull-up.",
+    "prerequisites": [
+      "australian-row"
+    ],
+    "drills": [],
+    "unlocks": [
+      "pull-up"
+    ]
+  },
+  {
+    "id": "pull-up",
+    "name": "Pull-Up",
     "category": "Pull",
     "type": "dynamic",
     "tier": 2,
-    "description": "Pronated grip vertical pull. Chin clears the bar completely.",
-    "prerequisites": ["australian-pull-up"],
-    "unlocks": ["high-pull-up", "archer-pull-up"],
-    "drills": ["Negative pull-ups", "Scapular pull-ups", "Banded pull-ups", "Isometric chin holds"]
+    "description": "Overhand grip pull-up.",
+    "prerequisites": [
+      "chin-up"
+    ],
+    "drills": [],
+    "unlocks": [
+      "wide-pull-up",
+      "l-sit-pull-up",
+      "commando-pull-up",
+      "high-pull-up",
+      "pullover",
+      "tuck-front-lever"
+    ]
+  },
+  {
+    "id": "wide-pull-up",
+    "name": "Wide Pull-Up",
+    "category": "Pull",
+    "type": "dynamic",
+    "tier": 2,
+    "description": "Pull-up with a wide grip.",
+    "prerequisites": [
+      "pull-up"
+    ],
+    "drills": [],
+    "unlocks": [
+      "archer-pull-up"
+    ]
+  },
+  {
+    "id": "l-sit-pull-up",
+    "name": "L-Sit Pull-Up",
+    "category": "Pull",
+    "type": "dynamic",
+    "tier": 3,
+    "description": "Pull-up holding an L-sit.",
+    "prerequisites": [
+      "pull-up",
+      "l-sit"
+    ],
+    "drills": [],
+    "unlocks": []
+  },
+  {
+    "id": "commando-pull-up",
+    "name": "Commando Pull-Up",
+    "category": "Pull",
+    "type": "dynamic",
+    "tier": 2,
+    "description": "Pull-up with hands close together, pulling to alternate shoulders.",
+    "prerequisites": [
+      "pull-up"
+    ],
+    "drills": [],
+    "unlocks": []
   },
   {
     "id": "high-pull-up",
@@ -291,32 +788,46 @@
     "category": "Pull",
     "type": "dynamic",
     "tier": 3,
-    "description": "Explosive vertical pull bringing the bar down to the chest or waist.",
-    "prerequisites": ["standard-pull-up"],
-    "unlocks": ["muscle-up"],
-    "drills": ["Chest-to-bar pull-ups", "Explosive clap pull-ups", "L-sit pull-ups", "Weighted pull-ups"]
+    "description": "Pulling explosively so the bar reaches the lower chest.",
+    "prerequisites": [
+      "pull-up"
+    ],
+    "drills": [],
+    "unlocks": [
+      "chest-to-bar"
+    ]
   },
   {
-    "id": "muscle-up",
-    "name": "Muscle-Up",
+    "id": "chest-to-bar",
+    "name": "Chest-to-Bar",
+    "category": "Pull",
+    "type": "dynamic",
+    "tier": 3,
+    "description": "Touching the chest to the bar.",
+    "prerequisites": [
+      "high-pull-up"
+    ],
+    "drills": [],
+    "unlocks": [
+      "waist-to-bar",
+      "bar-muscle-up",
+      "ring-muscle-up"
+    ]
+  },
+  {
+    "id": "waist-to-bar",
+    "name": "Waist-to-Bar",
     "category": "Pull",
     "type": "dynamic",
     "tier": 4,
-    "description": "Explosive high pull transitioning seamlessly over the bar into a straight bar dip.",
-    "prerequisites": ["high-pull-up", "parallel-bar-dip"],
-    "unlocks": ["strict-ring-muscle-up"],
-    "drills": ["Straight bar dips", "Jumping muscle-ups", "Banded muscle-ups", "False grip pull-ups"]
-  },
-  {
-    "id": "strict-ring-muscle-up",
-    "name": "Strict Ring Muscle-Up",
-    "category": "Pull",
-    "type": "dynamic",
-    "tier": 5,
-    "description": "Slow, momentum-free transition from false grip hang to deep ring dip.",
-    "prerequisites": ["muscle-up", "ring-dip"],
-    "unlocks": [],
-    "drills": ["Deep false grip hangs", "Transition drills on low rings", "Strict ring dips", "False grip chest-to-rings"]
+    "description": "Exploding so high the bar touches the waist.",
+    "prerequisites": [
+      "chest-to-bar"
+    ],
+    "drills": [],
+    "unlocks": [
+      "front-lever-pull-up"
+    ]
   },
   {
     "id": "archer-pull-up",
@@ -324,10 +835,45 @@
     "category": "Pull",
     "type": "dynamic",
     "tier": 3,
-    "description": "Pulling to one hand while the opposing arm assists but remains perfectly straight.",
-    "prerequisites": ["standard-pull-up"],
-    "unlocks": ["one-arm-pull-up"],
-    "drills": ["Wide grip pull-ups", "Typewriter pull-ups", "Mantle chin-ups", "Assisted archer pulls"]
+    "description": "Pull-up to one side, keeping the other arm straight.",
+    "prerequisites": [
+      "wide-pull-up"
+    ],
+    "drills": [],
+    "unlocks": [
+      "typewriter-pull-up",
+      "one-arm-chin-up"
+    ]
+  },
+  {
+    "id": "typewriter-pull-up",
+    "name": "Typewriter Pull-Up",
+    "category": "Pull",
+    "type": "dynamic",
+    "tier": 4,
+    "description": "Shifting side-to-side while holding the top of the pull-up.",
+    "prerequisites": [
+      "archer-pull-up"
+    ],
+    "drills": [],
+    "unlocks": []
+  },
+  {
+    "id": "one-arm-chin-up",
+    "name": "One Arm Chin-Up",
+    "category": "Pull",
+    "type": "dynamic",
+    "tier": 5,
+    "description": "Underhand OAC.",
+    "prerequisites": [
+      "archer-pull-up"
+    ],
+    "drills": [
+      "OAC Negatives"
+    ],
+    "unlocks": [
+      "one-arm-pull-up"
+    ]
   },
   {
     "id": "one-arm-pull-up",
@@ -335,10 +881,120 @@
     "category": "Pull",
     "type": "dynamic",
     "tier": 5,
-    "description": "The ultimate unilateral vertical pulling feat. Strict form, no kipping.",
-    "prerequisites": ["archer-pull-up"],
-    "unlocks": [],
-    "drills": ["One-arm negatives", "Banded one-arm pulls", "Lock-offs", "Heavy weighted pull-ups"]
+    "description": "Overhand OAP.",
+    "prerequisites": [
+      "one-arm-chin-up"
+    ],
+    "drills": [],
+    "unlocks": [
+      "one-arm-muscle-up",
+      "one-arm-front-lever"
+    ]
+  },
+  {
+    "id": "pullover",
+    "name": "Pullover",
+    "category": "Pull",
+    "type": "dynamic",
+    "tier": 2,
+    "description": "Pulling the body over the bar in a circular motion.",
+    "prerequisites": [
+      "pull-up"
+    ],
+    "drills": [],
+    "unlocks": [
+      "glide-kip"
+    ]
+  },
+  {
+    "id": "glide-kip",
+    "name": "Glide Kip",
+    "category": "Pull",
+    "type": "dynamic",
+    "tier": 3,
+    "description": "Swinging momentum to mount the bar.",
+    "prerequisites": [
+      "pullover"
+    ],
+    "drills": [],
+    "unlocks": []
+  },
+  {
+    "id": "bar-muscle-up",
+    "name": "Bar Muscle-Up",
+    "category": "Pull",
+    "type": "dynamic",
+    "tier": 4,
+    "description": "Explosive pull-up directly into a dip.",
+    "prerequisites": [
+      "chest-to-bar",
+      "straight-bar-dip"
+    ],
+    "drills": [],
+    "unlocks": [
+      "slow-bar-muscle-up"
+    ]
+  },
+  {
+    "id": "ring-muscle-up",
+    "name": "Ring Muscle-Up",
+    "category": "Pull",
+    "type": "dynamic",
+    "tier": 4,
+    "description": "Muscle-up performed on rings.",
+    "prerequisites": [
+      "chest-to-bar",
+      "ring-dip"
+    ],
+    "drills": [],
+    "unlocks": [
+      "strict-ring-muscle-up"
+    ]
+  },
+  {
+    "id": "strict-ring-muscle-up",
+    "name": "Strict Ring Muscle-up",
+    "category": "Pull",
+    "type": "dynamic",
+    "tier": 5,
+    "description": "Slow, strict muscle-up on rings using false grip.",
+    "prerequisites": [
+      "ring-muscle-up"
+    ],
+    "drills": [],
+    "unlocks": [
+      "iron-cross"
+    ]
+  },
+  {
+    "id": "slow-bar-muscle-up",
+    "name": "Slow Bar Muscle-Up",
+    "category": "Pull",
+    "type": "dynamic",
+    "tier": 5,
+    "description": "Strict, slow motion bar muscle-up.",
+    "prerequisites": [
+      "bar-muscle-up",
+      "russian-dip"
+    ],
+    "drills": [],
+    "unlocks": [
+      "one-arm-muscle-up"
+    ]
+  },
+  {
+    "id": "one-arm-muscle-up",
+    "name": "One Arm Muscle-Up",
+    "category": "Pull",
+    "type": "dynamic",
+    "tier": 6,
+    "description": "Muscle-up using only one arm.",
+    "prerequisites": [
+      "one-arm-pull-up",
+      "slow-bar-muscle-up"
+    ],
+    "drills": [],
+    "unlocks": []
   },
   {
     "id": "tuck-front-lever",
@@ -346,21 +1002,29 @@
     "category": "Pull",
     "type": "static",
     "tier": 2,
-    "description": "Hang horizontally with the back parallel to the ground, knees tucked into chest.",
-    "prerequisites": [],
-    "unlocks": ["advanced-tuck-front-lever"],
-    "drills": ["Dragon flags", "Straight arm pulldowns", "Scapular shrugs", "Hollow body holds"]
+    "description": "Tucked front lever hold.",
+    "prerequisites": [
+      "pull-up"
+    ],
+    "drills": [],
+    "unlocks": [
+      "adv-tuck-front-lever"
+    ]
   },
   {
-    "id": "advanced-tuck-front-lever",
-    "name": "Adv. Tuck Front Lever",
+    "id": "adv-tuck-front-lever",
+    "name": "Adv. Tuck FL",
     "category": "Pull",
     "type": "static",
     "tier": 3,
-    "description": "Back perfectly flat, knees extended to a 90-degree angle from the hips.",
-    "prerequisites": ["tuck-front-lever"],
-    "unlocks": ["straddle-front-lever"],
-    "drills": ["Tuck front lever rows", "Ice cream makers", "Front lever negatives", "Banded holds"]
+    "description": "Tuck FL with flat back.",
+    "prerequisites": [
+      "tuck-front-lever"
+    ],
+    "drills": [],
+    "unlocks": [
+      "straddle-front-lever"
+    ]
   },
   {
     "id": "straddle-front-lever",
@@ -368,10 +1032,14 @@
     "category": "Pull",
     "type": "static",
     "tier": 4,
-    "description": "Body horizontal with legs fully locked and spread wide open.",
-    "prerequisites": ["advanced-tuck-front-lever"],
-    "unlocks": ["full-front-lever"],
-    "drills": ["Straddle negatives", "Halflay front lever", "Banded straddle holds", "Dragon flag raises"]
+    "description": "Front lever with wide legs.",
+    "prerequisites": [
+      "adv-tuck-front-lever"
+    ],
+    "drills": [],
+    "unlocks": [
+      "full-front-lever"
+    ]
   },
   {
     "id": "full-front-lever",
@@ -379,21 +1047,103 @@
     "category": "Pull",
     "type": "static",
     "tier": 5,
-    "description": "Body perfectly straight and parallel to the floor, heavy lat and core demand.",
-    "prerequisites": ["straddle-front-lever"],
-    "unlocks": [],
-    "drills": ["Full lever negatives", "Front lever pulls", "Dragon press", "Ankle weighted straddle lever"]
+    "description": "Perfectly straight horizontal hang.",
+    "prerequisites": [
+      "straddle-front-lever"
+    ],
+    "drills": [],
+    "unlocks": [
+      "front-lever-pull-up",
+      "one-arm-front-lever"
+    ]
+  },
+  {
+    "id": "front-lever-pull-up",
+    "name": "FL Pull-Up",
+    "category": "Pull",
+    "type": "dynamic",
+    "tier": 5,
+    "description": "Rowing in the front lever position.",
+    "prerequisites": [
+      "full-front-lever",
+      "waist-to-bar"
+    ],
+    "drills": [],
+    "unlocks": [
+      "front-lever-touch"
+    ]
+  },
+  {
+    "id": "front-lever-touch",
+    "name": "FL Touch",
+    "category": "Pull",
+    "type": "static",
+    "tier": 6,
+    "description": "Holding the front lever with the bar touching the waist.",
+    "prerequisites": [
+      "front-lever-pull-up"
+    ],
+    "drills": [],
+    "unlocks": [
+      "victorian-cross"
+    ]
+  },
+  {
+    "id": "one-arm-front-lever",
+    "name": "One Arm Front Lever",
+    "category": "Pull",
+    "type": "static",
+    "tier": 6,
+    "description": "Full front lever on a single arm.",
+    "prerequisites": [
+      "full-front-lever",
+      "one-arm-pull-up"
+    ],
+    "drills": [],
+    "unlocks": []
+  },
+  {
+    "id": "victorian-cross",
+    "name": "Victorian Cross",
+    "category": "Pull",
+    "type": "static",
+    "tier": 6,
+    "description": "Front lever with arms completely at the sides.",
+    "prerequisites": [
+      "front-lever-touch"
+    ],
+    "drills": [],
+    "unlocks": []
   },
   {
     "id": "skin-the-cat",
     "name": "Skin the Cat",
     "category": "Pull",
     "type": "dynamic",
+    "tier": 1,
+    "description": "Inverting and passing legs through arms.",
+    "prerequisites": [
+      "australian-row"
+    ],
+    "drills": [],
+    "unlocks": [
+      "german-hang"
+    ]
+  },
+  {
+    "id": "german-hang",
+    "name": "German Hang",
+    "category": "Pull",
+    "type": "static",
     "tier": 2,
-    "description": "Pull the legs through the arms and lower into a deep backward shoulder extension.",
-    "prerequisites": [],
-    "unlocks": ["tuck-back-lever"],
-    "drills": ["Dead hangs", "Active hangs", "German hang stretches", "Leg raises"]
+    "description": "Deep shoulder extension hang.",
+    "prerequisites": [
+      "skin-the-cat"
+    ],
+    "drills": [],
+    "unlocks": [
+      "tuck-back-lever"
+    ]
   },
   {
     "id": "tuck-back-lever",
@@ -401,43 +1151,72 @@
     "category": "Pull",
     "type": "static",
     "tier": 2,
-    "description": "Hang upside down, lower horizontally facing the floor, knees tightly tucked.",
-    "prerequisites": ["skin-the-cat"],
-    "unlocks": ["advanced-tuck-back-lever"],
-    "drills": ["German hang holds", "Skin the cat reps", "Bicep conditioning"]
-  },
-  {
-    "id": "advanced-tuck-back-lever",
-    "name": "Adv. Tuck Back Lever",
-    "category": "Pull",
-    "type": "static",
-    "tier": 3,
-    "description": "Back lever with a flat back and hips, knees at 90 degrees.",
-    "prerequisites": ["tuck-back-lever"],
-    "unlocks": ["straddle-back-lever"],
-    "drills": ["Advanced tuck back lever pullouts", "Banded back lever", "Planche leans"]
+    "description": "Tucked back lever hold.",
+    "prerequisites": [
+      "german-hang"
+    ],
+    "drills": [],
+    "unlocks": [
+      "straddle-back-lever"
+    ]
   },
   {
     "id": "straddle-back-lever",
     "name": "Straddle Back Lever",
     "category": "Pull",
     "type": "static",
-    "tier": 4,
-    "description": "Facing the floor, body horizontal, legs extended straight and straddled wide.",
-    "prerequisites": ["advanced-tuck-back-lever"],
-    "unlocks": ["full-back-lever"],
-    "drills": ["Back lever negatives", "Halflay back lever", "Straddle pullouts"]
+    "tier": 3,
+    "description": "Straddled back lever hold.",
+    "prerequisites": [
+      "tuck-back-lever"
+    ],
+    "drills": [],
+    "unlocks": [
+      "full-back-lever"
+    ]
   },
   {
     "id": "full-back-lever",
     "name": "Full Back Lever",
     "category": "Pull",
     "type": "static",
+    "tier": 4,
+    "description": "Straight body back lever.",
+    "prerequisites": [
+      "straddle-back-lever"
+    ],
+    "drills": [],
+    "unlocks": [
+      "one-arm-back-lever",
+      "pelican-curl",
+      "iron-cross"
+    ]
+  },
+  {
+    "id": "one-arm-back-lever",
+    "name": "One Arm Back Lever",
+    "category": "Pull",
+    "type": "static",
     "tier": 5,
-    "description": "Straight line from shoulders to toes, supinated grip, heavy bicep/connective tissue load.",
-    "prerequisites": ["straddle-back-lever"],
-    "unlocks": ["iron-cross"],
-    "drills": ["Full back lever pulls", "Ankle weighted back lever", "Maltese leans"]
+    "description": "Back lever on one arm.",
+    "prerequisites": [
+      "full-back-lever"
+    ],
+    "drills": [],
+    "unlocks": []
+  },
+  {
+    "id": "pelican-curl",
+    "name": "Pelican Curl",
+    "category": "Pull",
+    "type": "dynamic",
+    "tier": 5,
+    "description": "Extreme bicep curl from deep German hang.",
+    "prerequisites": [
+      "full-back-lever"
+    ],
+    "drills": [],
+    "unlocks": []
   },
   {
     "id": "iron-cross",
@@ -445,21 +1224,87 @@
     "category": "Pull",
     "type": "static",
     "tier": 5,
-    "description": "Suspend body on rings with arms strictly out at the sides horizontally.",
-    "prerequisites": ["full-back-lever"],
-    "unlocks": [],
-    "drills": ["Cross pull-outs", "Banded iron cross", "Block crosses", "Heavy lateral raises"]
+    "description": "Supporting body with arms fully horizontal.",
+    "prerequisites": [
+      "strict-ring-muscle-up",
+      "full-back-lever"
+    ],
+    "drills": [],
+    "unlocks": [
+      "butterfly-mount",
+      "azarian",
+      "inverted-cross"
+    ]
   },
   {
-    "id": "hollow-body-hold",
-    "name": "Hollow Body Hold",
+    "id": "butterfly-mount",
+    "name": "Butterfly Mount",
+    "category": "Pull",
+    "type": "dynamic",
+    "tier": 6,
+    "description": "Explosive swing into an iron cross.",
+    "prerequisites": [
+      "iron-cross"
+    ],
+    "drills": [],
+    "unlocks": []
+  },
+  {
+    "id": "azarian",
+    "name": "Azarian",
+    "category": "Pull",
+    "type": "dynamic",
+    "tier": 6,
+    "description": "Roll up from hang directly into iron cross.",
+    "prerequisites": [
+      "iron-cross"
+    ],
+    "drills": [],
+    "unlocks": []
+  },
+  {
+    "id": "inverted-cross",
+    "name": "Inverted Cross",
+    "category": "Pull",
+    "type": "static",
+    "tier": 6,
+    "description": "Upside-down iron cross.",
+    "prerequisites": [
+      "iron-cross",
+      "freestanding-hspu"
+    ],
+    "drills": [],
+    "unlocks": []
+  },
+  {
+    "id": "hollow-hold",
+    "name": "Hollow Hold",
     "category": "Core",
     "type": "static",
     "tier": 1,
-    "description": "Lower back pinned to floor, shoulders and legs hovering, mimicking gymnastics posture.",
+    "description": "Core tight, lower back flat to floor.",
     "prerequisites": [],
-    "unlocks": ["l-sit", "dragon-flag-eccentric"],
-    "drills": ["Planks", "Deadbugs", "Hollow body rocks", "Tuck hollow holds"]
+    "drills": [],
+    "unlocks": [
+      "tuck-l-sit",
+      "dragon-flag-neg",
+      "kneeling-ab-wheel"
+    ]
+  },
+  {
+    "id": "tuck-l-sit",
+    "name": "Tuck L-Sit",
+    "category": "Core",
+    "type": "static",
+    "tier": 1,
+    "description": "Supported on hands, knees tucked.",
+    "prerequisites": [
+      "hollow-hold"
+    ],
+    "drills": [],
+    "unlocks": [
+      "l-sit"
+    ]
   },
   {
     "id": "l-sit",
@@ -467,10 +1312,31 @@
     "category": "Core",
     "type": "static",
     "tier": 2,
-    "description": "Support on hands, legs perfectly straight forming a 90-degree angle with the torso.",
-    "prerequisites": ["hollow-body-hold"],
-    "unlocks": ["v-sit"],
-    "drills": ["Tuck L-Sit", "Pike compression stretches", "Hanging leg raises", "Support holds"]
+    "description": "Legs straight and horizontal.",
+    "prerequisites": [
+      "tuck-l-sit"
+    ],
+    "drills": [],
+    "unlocks": [
+      "l-sit-pull-up",
+      "high-l-sit",
+      "pistol-squat"
+    ]
+  },
+  {
+    "id": "high-l-sit",
+    "name": "High L-Sit",
+    "category": "Core",
+    "type": "static",
+    "tier": 3,
+    "description": "L-sit with hips pushed forward and legs above parallel.",
+    "prerequisites": [
+      "l-sit"
+    ],
+    "drills": [],
+    "unlocks": [
+      "v-sit"
+    ]
   },
   {
     "id": "v-sit",
@@ -478,32 +1344,160 @@
     "category": "Core",
     "type": "static",
     "tier": 4,
-    "description": "Hips pushed forward through hands, legs intensely compressed above a 45-degree angle.",
-    "prerequisites": ["l-sit"],
-    "unlocks": ["manna"],
-    "drills": ["High L-Sit", "Pike leg lifts", "Straddle L-sit", "Extreme hamstring stretching"]
+    "description": "Legs raised high into a V shape.",
+    "prerequisites": [
+      "high-l-sit"
+    ],
+    "drills": [],
+    "unlocks": [
+      "stalder-press",
+      "high-v-sit"
+    ]
+  },
+  {
+    "id": "high-v-sit",
+    "name": "High V-Sit",
+    "category": "Core",
+    "type": "static",
+    "tier": 5,
+    "description": "V-sit with legs almost touching face.",
+    "prerequisites": [
+      "v-sit"
+    ],
+    "drills": [],
+    "unlocks": [
+      "manna"
+    ]
   },
   {
     "id": "manna",
     "name": "Manna",
     "category": "Core",
-    "type": "balance",
-    "tier": 5,
-    "description": "Legs elevated completely horizontal behind the head. Requires ultimate flexibility and triceps.",
-    "prerequisites": ["v-sit"],
-    "unlocks": [],
-    "drills": ["Middle splits", "Shoulder extension stretches", "Elevated V-sits", "Manna wall walks"]
+    "type": "static",
+    "tier": 6,
+    "description": "Legs extending horizontally backwards.",
+    "prerequisites": [
+      "high-v-sit"
+    ],
+    "drills": [],
+    "unlocks": [
+      "reverse-planche"
+    ]
   },
   {
-    "id": "dragon-flag-eccentric",
-    "name": "Dragon Flag Eccentric",
+    "id": "reverse-planche",
+    "name": "Reverse Planche",
+    "category": "Core",
+    "type": "static",
+    "tier": 6,
+    "description": "Full horizontal support facing up.",
+    "prerequisites": [
+      "manna"
+    ],
+    "drills": [],
+    "unlocks": []
+  },
+  {
+    "id": "side-plank",
+    "name": "Side Plank",
+    "category": "Core",
+    "type": "static",
+    "tier": 1,
+    "description": "Lateral core hold.",
+    "prerequisites": [],
+    "drills": [],
+    "unlocks": [
+      "clutch-flag"
+    ]
+  },
+  {
+    "id": "clutch-flag",
+    "name": "Clutch Flag",
+    "category": "Core",
+    "type": "static",
+    "tier": 2,
+    "description": "Holding flag by hugging the pole.",
+    "prerequisites": [
+      "side-plank"
+    ],
+    "drills": [],
+    "unlocks": [
+      "tuck-human-flag"
+    ]
+  },
+  {
+    "id": "tuck-human-flag",
+    "name": "Tuck Human Flag",
+    "category": "Core",
+    "type": "static",
+    "tier": 3,
+    "description": "Standard flag grip, knees tucked.",
+    "prerequisites": [
+      "clutch-flag"
+    ],
+    "drills": [],
+    "unlocks": [
+      "straddle-human-flag"
+    ]
+  },
+  {
+    "id": "straddle-human-flag",
+    "name": "Straddle Human Flag",
+    "category": "Core",
+    "type": "static",
+    "tier": 4,
+    "description": "Human flag with straddled legs.",
+    "prerequisites": [
+      "tuck-human-flag",
+      "wall-handstand"
+    ],
+    "drills": [],
+    "unlocks": [
+      "full-human-flag"
+    ]
+  },
+  {
+    "id": "full-human-flag",
+    "name": "Full Human Flag",
+    "category": "Core",
+    "type": "static",
+    "tier": 5,
+    "description": "Straight body human flag.",
+    "prerequisites": [
+      "straddle-human-flag"
+    ],
+    "drills": [],
+    "unlocks": [
+      "one-arm-human-flag"
+    ]
+  },
+  {
+    "id": "one-arm-human-flag",
+    "name": "One Arm Human Flag",
+    "category": "Core",
+    "type": "static",
+    "tier": 6,
+    "description": "Human flag with only the bottom pushing arm.",
+    "prerequisites": [
+      "full-human-flag"
+    ],
+    "drills": [],
+    "unlocks": []
+  },
+  {
+    "id": "dragon-flag-neg",
+    "name": "Dragon Flag Negatives",
     "category": "Core",
     "type": "dynamic",
     "tier": 2,
-    "description": "Lower body slowly from a vertical candle stick position on a bench.",
-    "prerequisites": ["hollow-body-hold"],
-    "unlocks": ["dragon-flag"],
-    "drills": ["Candlestick raises", "Lying leg raises", "Reverse crunches"]
+    "description": "Lowering from vertical slowly.",
+    "prerequisites": [
+      "hollow-hold"
+    ],
+    "drills": [],
+    "unlocks": [
+      "dragon-flag"
+    ]
   },
   {
     "id": "dragon-flag",
@@ -511,21 +1505,27 @@
     "category": "Core",
     "type": "static",
     "tier": 3,
-    "description": "Full rigid body raise from the shoulders. Only upper back touches the bench.",
-    "prerequisites": ["dragon-flag-eccentric"],
-    "unlocks": ["human-flag"],
-    "drills": ["Dragon flag holds", "Dragon flag flutter kicks", "Weighted hollow bodies"]
+    "description": "Holding straight body flag on bench/floor.",
+    "prerequisites": [
+      "dragon-flag-neg"
+    ],
+    "drills": [],
+    "unlocks": [
+      "dragon-press"
+    ]
   },
   {
-    "id": "human-flag",
-    "name": "Human Flag",
+    "id": "dragon-press",
+    "name": "Dragon Press",
     "category": "Core",
     "type": "static",
-    "tier": 4,
-    "description": "Body perfectly straight horizontally sideways off a vertical pole. Extreme obliques.",
-    "prerequisites": ["dragon-flag"],
-    "unlocks": [],
-    "drills": ["Tuck human flag", "Straddle human flag", "Human flag negatives", "Heavy side planks"]
+    "tier": 5,
+    "description": "Dragon flag without holding anything behind you, pressing hands into floor.",
+    "prerequisites": [
+      "dragon-flag"
+    ],
+    "drills": [],
+    "unlocks": []
   },
   {
     "id": "hanging-knee-raises",
@@ -533,10 +1533,12 @@
     "category": "Core",
     "type": "dynamic",
     "tier": 1,
-    "description": "Hang from bar, bring knees up to the chest using abdominal contraction.",
+    "description": "Knees to chest.",
     "prerequisites": [],
-    "unlocks": ["hanging-leg-raises"],
-    "drills": ["Dead hangs", "Lying knee tucks", "Active hang holds"]
+    "drills": [],
+    "unlocks": [
+      "hanging-leg-raises"
+    ]
   },
   {
     "id": "hanging-leg-raises",
@@ -544,10 +1546,14 @@
     "category": "Core",
     "type": "dynamic",
     "tier": 2,
-    "description": "Hang from bar, keeping legs straight, raise them to 90 degrees.",
-    "prerequisites": ["hanging-knee-raises"],
-    "unlocks": ["toes-to-bar"],
-    "drills": ["L-hangs", "Lying leg raises", "Pike flexibility drills"]
+    "description": "Straight legs to L-sit.",
+    "prerequisites": [
+      "hanging-knee-raises"
+    ],
+    "drills": [],
+    "unlocks": [
+      "toes-to-bar"
+    ]
   },
   {
     "id": "toes-to-bar",
@@ -555,21 +1561,87 @@
     "category": "Core",
     "type": "dynamic",
     "tier": 3,
-    "description": "Strict leg raise until the shins/toes physically tap the pull-up bar.",
-    "prerequisites": ["hanging-leg-raises"],
-    "unlocks": [],
-    "drills": ["Windshield wipers", "Hanging V-raises", "Weighted leg raises", "Compression lifts"]
+    "description": "Straight legs all the way to bar.",
+    "prerequisites": [
+      "hanging-leg-raises"
+    ],
+    "drills": [],
+    "unlocks": [
+      "windshield-wipers"
+    ]
   },
   {
-    "id": "bodyweight-squat",
-    "name": "Bodyweight Squat",
+    "id": "windshield-wipers",
+    "name": "Windshield Wipers",
+    "category": "Core",
+    "type": "dynamic",
+    "tier": 4,
+    "description": "Rotating legs side to side while in toes-to-bar position.",
+    "prerequisites": [
+      "toes-to-bar"
+    ],
+    "drills": [],
+    "unlocks": []
+  },
+  {
+    "id": "kneeling-ab-wheel",
+    "name": "Kneeling Ab Wheel",
+    "category": "Core",
+    "type": "dynamic",
+    "tier": 2,
+    "description": "Rollout from knees.",
+    "prerequisites": [
+      "hollow-hold"
+    ],
+    "drills": [],
+    "unlocks": [
+      "standing-ab-wheel"
+    ]
+  },
+  {
+    "id": "standing-ab-wheel",
+    "name": "Standing Ab Wheel",
+    "category": "Core",
+    "type": "dynamic",
+    "tier": 4,
+    "description": "Full rollout from standing.",
+    "prerequisites": [
+      "kneeling-ab-wheel"
+    ],
+    "drills": [],
+    "unlocks": []
+  },
+  {
+    "id": "air-squat",
+    "name": "Air Squat",
     "category": "Legs",
     "type": "dynamic",
     "tier": 1,
-    "description": "Fundamental lower body movement. Hip crease below knee, torso upright.",
+    "description": "Standard bodyweight squat.",
     "prerequisites": [],
-    "unlocks": ["lunge", "jump-squat", "cossack-squat", "sissy-squat"],
-    "drills": ["Wall sits", "Assisted squats", "Box squats", "Ankle mobility stretching"]
+    "drills": [],
+    "unlocks": [
+      "jump-squat",
+      "lunge",
+      "cossack-squat",
+      "sissy-squat",
+      "pancake"
+    ]
+  },
+  {
+    "id": "jump-squat",
+    "name": "Jump Squat",
+    "category": "Legs",
+    "type": "dynamic",
+    "tier": 1,
+    "description": "Explosive squat with jump.",
+    "prerequisites": [
+      "air-squat"
+    ],
+    "drills": [],
+    "unlocks": [
+      "jumping-pistol"
+    ]
   },
   {
     "id": "lunge",
@@ -577,10 +1649,59 @@
     "category": "Legs",
     "type": "dynamic",
     "tier": 1,
-    "description": "Step forward, dropping the back knee to hover above the ground.",
-    "prerequisites": ["bodyweight-squat"],
-    "unlocks": ["bulgarian-split-squat"],
-    "drills": ["Reverse lunges", "Walking lunges", "Step-ups"]
+    "description": "Stepping lunge.",
+    "prerequisites": [
+      "air-squat"
+    ],
+    "drills": [],
+    "unlocks": [
+      "bulgarian-split-squat",
+      "skater-squat",
+      "front-split"
+    ]
+  },
+  {
+    "id": "cossack-squat",
+    "name": "Cossack Squat",
+    "category": "Legs",
+    "type": "dynamic",
+    "tier": 2,
+    "description": "Deep lateral lunge.",
+    "prerequisites": [
+      "air-squat"
+    ],
+    "drills": [],
+    "unlocks": [
+      "middle-split"
+    ]
+  },
+  {
+    "id": "sissy-squat",
+    "name": "Sissy Squat",
+    "category": "Legs",
+    "type": "dynamic",
+    "tier": 3,
+    "description": "Leaning back to isolate quads.",
+    "prerequisites": [
+      "air-squat"
+    ],
+    "drills": [],
+    "unlocks": [
+      "matrix-squat"
+    ]
+  },
+  {
+    "id": "matrix-squat",
+    "name": "Matrix Squat",
+    "category": "Legs",
+    "type": "dynamic",
+    "tier": 4,
+    "description": "Extreme sissy squat touching back to calves.",
+    "prerequisites": [
+      "sissy-squat"
+    ],
+    "drills": [],
+    "unlocks": []
   },
   {
     "id": "bulgarian-split-squat",
@@ -588,76 +1709,101 @@
     "category": "Legs",
     "type": "dynamic",
     "tier": 2,
-    "description": "Lunge with rear foot elevated on a bench for massive quad and glute isolation.",
-    "prerequisites": ["lunge"],
-    "unlocks": ["shrimp-squat"],
-    "drills": ["Weighted lunges", "Deep split squats", "Single leg deadlifts"]
+    "description": "Rear foot elevated.",
+    "prerequisites": [
+      "lunge"
+    ],
+    "drills": [],
+    "unlocks": [
+      "pistol-squat"
+    ]
+  },
+  {
+    "id": "skater-squat",
+    "name": "Skater Squat",
+    "category": "Legs",
+    "type": "dynamic",
+    "tier": 2,
+    "description": "Like a lunge but back foot doesn't touch floor.",
+    "prerequisites": [
+      "lunge"
+    ],
+    "drills": [],
+    "unlocks": [
+      "shrimp-squat"
+    ]
   },
   {
     "id": "shrimp-squat",
     "name": "Shrimp Squat",
     "category": "Legs",
-    "type": "balance",
+    "type": "dynamic",
     "tier": 3,
-    "description": "Hold one ankle behind you, squat until that knee touches the ground, and rise.",
-    "prerequisites": ["bulgarian-split-squat"],
-    "unlocks": [],
-    "drills": ["Assisted shrimp squats", "Advanced shrimp squats (holding with both hands)", "Knee taps"]
+    "description": "Holding back foot, knee touches floor.",
+    "prerequisites": [
+      "skater-squat"
+    ],
+    "drills": [],
+    "unlocks": [
+      "elevated-shrimp"
+    ]
   },
   {
-    "id": "jump-squat",
-    "name": "Jump Squat",
+    "id": "elevated-shrimp",
+    "name": "Elevated Shrimp",
     "category": "Legs",
     "type": "dynamic",
-    "tier": 2,
-    "description": "Squat down and explode upwards, leaving the ground.",
-    "prerequisites": ["bodyweight-squat"],
-    "unlocks": ["pistol-squat"],
-    "drills": ["Box jumps", "Broad jumps", "Calf raises"]
+    "tier": 4,
+    "description": "Shrimp squat performed on a box for deeper ROM.",
+    "prerequisites": [
+      "shrimp-squat"
+    ],
+    "drills": [],
+    "unlocks": []
   },
   {
     "id": "pistol-squat",
     "name": "Pistol Squat",
     "category": "Legs",
-    "type": "balance",
+    "type": "dynamic",
     "tier": 3,
-    "description": "Freestanding one-legged squat. Non-working leg kept completely straight out in front.",
-    "prerequisites": ["jump-squat"],
-    "unlocks": ["dragon-pistol-squat"],
-    "drills": ["Assisted pistol squats", "Box pistols", "Rolling deck squats", "Ankle dorsiflexion work"]
+    "description": "One-legged squat, other leg straight forward.",
+    "prerequisites": [
+      "bulgarian-split-squat",
+      "l-sit"
+    ],
+    "drills": [],
+    "unlocks": [
+      "jumping-pistol",
+      "dragon-pistol"
+    ]
   },
   {
-    "id": "dragon-pistol-squat",
-    "name": "Dragon Pistol Squat",
+    "id": "jumping-pistol",
+    "name": "Jumping Pistol",
     "category": "Legs",
-    "type": "balance",
+    "type": "dynamic",
     "tier": 4,
-    "description": "Pistol squat variation where the straight leg crosses behind the working leg.",
-    "prerequisites": ["pistol-squat"],
-    "unlocks": [],
-    "drills": ["Curtsy lunges", "Elevated dragon pistols", "Deep hip mobility routines"]
+    "description": "Exploding out of a pistol squat.",
+    "prerequisites": [
+      "pistol-squat",
+      "jump-squat"
+    ],
+    "drills": [],
+    "unlocks": []
   },
   {
-    "id": "cossack-squat",
-    "name": "Cossack Squat",
+    "id": "dragon-pistol",
+    "name": "Dragon Pistol",
     "category": "Legs",
-    "type": "balance",
-    "tier": 2,
-    "description": "Deep side lunge keeping the opposite leg entirely straight with the toe pointing up.",
-    "prerequisites": ["bodyweight-squat"],
-    "unlocks": [],
-    "drills": ["Side lunges", "Sumo squats", "Horse stance", "Adductor stretching"]
-  },
-  {
-    "id": "sissy-squat",
-    "name": "Sissy Squat",
-    "category": "Legs",
-    "type": "balance",
-    "tier": 3,
-    "description": "Lean straight back on the toes, dropping knees far forward to isolate quads.",
-    "prerequisites": ["bodyweight-squat"],
-    "unlocks": [],
-    "drills": ["Kneeling leg extensions", "Assisted sissy squats", "Matrix squats"]
+    "type": "dynamic",
+    "tier": 4,
+    "description": "Pistol squat with free leg wrapping behind.",
+    "prerequisites": [
+      "pistol-squat"
+    ],
+    "drills": [],
+    "unlocks": []
   },
   {
     "id": "glute-bridge",
@@ -665,32 +1811,45 @@
     "category": "Legs",
     "type": "dynamic",
     "tier": 1,
-    "description": "Lie on back, squeeze glutes to push hips toward the ceiling.",
+    "description": "Hip thrust from floor.",
     "prerequisites": [],
-    "unlocks": ["nordic-curl-eccentric"],
-    "drills": ["Single leg glute bridges", "Hip thrusts", "Frog pumps"]
+    "drills": [],
+    "unlocks": [
+      "single-leg-bridge",
+      "bridge-backbend"
+    ]
   },
   {
-    "id": "nordic-curl-eccentric",
-    "name": "Nordic Curl Eccentric",
+    "id": "single-leg-bridge",
+    "name": "Single Leg Bridge",
     "category": "Legs",
     "type": "dynamic",
-    "tier": 3,
-    "description": "Knees pinned, slowly lower torso forward purely using hamstring tension to brake.",
-    "prerequisites": ["glute-bridge"],
-    "unlocks": ["full-nordic-curl"],
-    "drills": ["Glute-ham raises", "Sliding leg curls", "Banded Nordic curls"]
+    "tier": 2,
+    "description": "One-legged glute bridge.",
+    "prerequisites": [
+      "glute-bridge"
+    ],
+    "drills": [],
+    "unlocks": [
+      "nordic-curl"
+    ]
   },
   {
-    "id": "full-nordic-curl",
-    "name": "Full Nordic Curl",
+    "id": "nordic-curl",
+    "name": "Nordic Curl",
     "category": "Legs",
     "type": "dynamic",
     "tier": 4,
-    "description": "Lower all the way to the ground and curl the body strictly back up using hamstrings.",
-    "prerequisites": ["nordic-curl-eccentric"],
-    "unlocks": ["razor-curl"],
-    "drills": ["Assisted concentric Nordics", "Weighted eccentric Nordics", "Harald curls"]
+    "description": "Bodyweight hamstring curl.",
+    "prerequisites": [
+      "single-leg-bridge"
+    ],
+    "drills": [
+      "Nordic Negatives"
+    ],
+    "unlocks": [
+      "razor-curl"
+    ]
   },
   {
     "id": "razor-curl",
@@ -698,9 +1857,78 @@
     "category": "Legs",
     "type": "dynamic",
     "tier": 5,
-    "description": "Hover chest off ground, pull hips back while keeping knees pinned. Elite hamstring flex.",
-    "prerequisites": ["full-nordic-curl"],
-    "unlocks": [],
-    "drills": ["Partial razor curls", "Heavy full Nordics", "Hip hinge variations"]
+    "description": "Nordic curl keeping hips folded.",
+    "prerequisites": [
+      "nordic-curl"
+    ],
+    "drills": [],
+    "unlocks": []
+  },
+  {
+    "id": "pancake",
+    "name": "Pancake",
+    "category": "Legs",
+    "type": "static",
+    "tier": 2,
+    "description": "Straddle seated forward fold, chest to floor.",
+    "prerequisites": [
+      "air-squat"
+    ],
+    "drills": [],
+    "unlocks": []
+  },
+  {
+    "id": "front-split",
+    "name": "Front Split",
+    "category": "Legs",
+    "type": "static",
+    "tier": 3,
+    "description": "Full front-to-back split.",
+    "prerequisites": [
+      "lunge"
+    ],
+    "drills": [],
+    "unlocks": []
+  },
+  {
+    "id": "middle-split",
+    "name": "Middle Split",
+    "category": "Legs",
+    "type": "static",
+    "tier": 4,
+    "description": "Full side-to-side split.",
+    "prerequisites": [
+      "cossack-squat"
+    ],
+    "drills": [],
+    "unlocks": []
+  },
+  {
+    "id": "bridge-backbend",
+    "name": "Bridge (Backbend)",
+    "category": "Legs",
+    "type": "static",
+    "tier": 3,
+    "description": "Full backbend pushed up from floor.",
+    "prerequisites": [
+      "glute-bridge"
+    ],
+    "drills": [],
+    "unlocks": [
+      "stand-to-stand-bridge"
+    ]
+  },
+  {
+    "id": "stand-to-stand-bridge",
+    "name": "Stand-to-Stand Bridge",
+    "category": "Legs",
+    "type": "dynamic",
+    "tier": 5,
+    "description": "Dropping to a bridge from standing and recovering.",
+    "prerequisites": [
+      "bridge-backbend"
+    ],
+    "drills": [],
+    "unlocks": []
   }
 ]

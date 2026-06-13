@@ -3,57 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calisthenics Skill Tree</title>
+    <meta name="description" content="Interactive calisthenics skill tree — track your bodyweight training progression from push-ups to planche, pull-ups to front lever, and beyond.">
+    <title>CalisthenicsMap — Interactive Bodyweight Skill Tree</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
 </head>
 <body>
+    <div id="app">
+        <!-- ── Toolbar ── -->
+        <header id="toolbar">
+            <div class="toolbar-brand">
+                <h1>Calisthenics<span>Map</span></h1>
+            </div>
 
-    <div id="app-container">
-        <!-- Left Sidebar -->
-        <aside id="sidebar">
-            <h1>Calisthenics Journey</h1>
-            <div class="search-box">
-                <input type="text" id="search-input" placeholder="Search a skill...">
-                <ul id="search-results"></ul>
+            <div class="toolbar-search">
+                <div class="search-wrapper" id="search-wrapper">
+                    <svg class="search-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+                    </svg>
+                    <input type="text" id="search-input" placeholder="Search skills…" autocomplete="off" spellcheck="false">
+                    <ul id="search-results"></ul>
+                </div>
+            </div>
+
+            <div class="toolbar-actions">
+                <div id="progress-wrap">
+                    <div id="progress-bar-track">
+                        <div id="progress-bar-fill"></div>
+                    </div>
+                    <span id="progress-text">– / –</span>
+                </div>
+
+                <button id="legend-btn" class="tool-btn" title="Toggle Legend">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
+                    </svg>
+                    <span class="btn-label">Legend</span>
+                </button>
+
+                <button id="reset-btn" class="tool-btn" title="Reset View">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3.51 9a9 9 0 0 1 14.85-3.36L21 8"/><path d="M21 3v5h-5"/><path d="M20.49 15a9 9 0 0 1-14.85 3.36L3 16"/><path d="M3 21v-5h5"/>
+                    </svg>
+                    <span class="btn-label">Reset</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- ── Canvas ── -->
+        <main id="canvas-area">
+            <canvas id="skill-canvas"></canvas>
+            <div id="canvas-hint">Scroll to zoom · Drag to pan · Click a skill for details</div>
+        </main>
+
+        <!-- ── Legend ── -->
+        <div id="legend-panel" class="hidden">
+            <div class="legend-group">
+                <h4>Categories</h4>
+                <div class="legend-item"><span class="legend-dot" style="--dot-color: var(--color-push)"></span>Push</div>
+                <div class="legend-item"><span class="legend-dot" style="--dot-color: var(--color-pull)"></span>Pull</div>
+                <div class="legend-item"><span class="legend-dot" style="--dot-color: var(--color-core)"></span>Core</div>
+                <div class="legend-item"><span class="legend-dot" style="--dot-color: var(--color-legs)"></span>Legs</div>
+            </div>
+            <div class="legend-group">
+                <h4>Skill Type</h4>
+                <div class="legend-item"><span class="legend-shape-icon dynamic-icon"></span>Dynamic</div>
+                <div class="legend-item"><span class="legend-shape-icon static-icon"></span>Static</div>
+                <div class="legend-item"><span class="legend-shape-icon balance-icon"></span>Balance</div>
+            </div>
+            <div class="legend-group">
+                <h4>Status</h4>
+                <div class="legend-item"><span class="legend-state-icon locked-icon"></span>Locked</div>
+                <div class="legend-item"><span class="legend-state-icon available-icon"></span>Available</div>
+                <div class="legend-item"><span class="legend-state-icon completed-icon"></span>Completed</div>
+            </div>
+        </div>
+
+        <!-- ── Detail Panel ── -->
+        <aside id="detail-panel" class="hidden">
+            <button id="close-panel" aria-label="Close details">&times;</button>
+            <div id="panel-accent-bar"></div>
+            <div class="panel-scroll">
+                <div class="panel-header">
+                    <h2 id="detail-title"></h2>
+                    <div class="panel-badges">
+                        <span id="detail-category" class="badge cat-badge"></span>
+                        <span id="detail-type" class="badge type-badge"></span>
+                        <span id="detail-tier" class="badge tier-badge"></span>
+                    </div>
+                </div>
+                <p id="detail-desc" class="panel-desc"></p>
+
+                <div id="prereq-section" class="panel-section hidden">
+                    <h3>Prerequisites</h3>
+                    <div id="detail-prereqs" class="badge-list"></div>
+                </div>
+                <div id="unlocks-section" class="panel-section hidden">
+                    <h3>Unlocks</h3>
+                    <div id="detail-unlocks" class="badge-list"></div>
+                </div>
+                <div id="drills-section" class="panel-section hidden">
+                    <h3>Training Drills</h3>
+                    <div id="detail-drills" class="badge-list"></div>
+                </div>
+            </div>
+
+            <div class="panel-footer">
+                <button id="toggle-complete-btn" class="complete-btn">
+                    <span class="check-mark">✓</span>
+                    <span id="complete-btn-text">Mark Complete</span>
+                </button>
             </div>
         </aside>
 
-        <!-- Main Tree Area -->
-        <main>
-            <div id="tree-container"></div>
-        </main>
-
-        <div id="map-controls">
-            <button id="reset-view" class="control-btn">🎯 Reset View</button>
-        </div>
-
-        <div id="map-legend">
-            <h4>Legend</h4>
-            <div><span class="color-box push"></span> Push</div>
-            <div><span class="color-box pull"></span> Pull</div>
-            <div><span class="color-box core"></span> Core</div>
-            <div><span class="color-box legs"></span> Legs</div>
-            
-            <div class="shape-legend">
-                <strong>Box</strong> = Static<br>
-                <strong>Ellipse</strong> = Dynamic<br>
-                <strong>Hexagon</strong> = Balance
-            </div>
-        </div>
-
-        <div id="right-panel" class="hidden">
-            <button id="close-panel">&times;</button>
-            <h2 id="detail-title">Select a skill</h2>
-            <span id="detail-category" class="badge">Category</span>
-            <span class="badge tier-badge">Tier <span id="detail-tier">1</span></span>
-            <p id="detail-desc"></p>
-            
-            <div id="recommended-section" class="hidden">
-                <h3>Recommended for this:</h3>
-                <div id="detail-recommended"></div>
-            </div>
-        </div>
+        <!-- ── Toasts ── -->
+        <div id="toast-container"></div>
     </div>
 
     <script src="app.js"></script>

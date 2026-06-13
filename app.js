@@ -45,6 +45,7 @@ let isDragging   = false;
 let dragStart    = { x: 0, y: 0 };
 let dragCameraStart = { x: 0, y: 0 };
 let needsRender  = true;
+let worldBounds  = null;
 
 // ═════════════════════════════════════════════════════
 //  INITIALISATION
@@ -77,6 +78,7 @@ async function init() {
 
     loadProgress();
     computeLayout();
+    worldBounds = computeWorldBounds();
 
     // Canvas setup
     canvas = document.getElementById('skill-canvas');
@@ -170,6 +172,51 @@ function computeLayout() {
     }
 }
 
+function computeWorldBounds() {
+    let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+    for (const p of Object.values(nodePositions)) {
+        minX = Math.min(minX, p.x);
+        minY = Math.min(minY, p.y);
+        maxX = Math.max(maxX, p.x + p.w);
+        maxY = Math.max(maxY, p.y + p.h);
+    }
+    if (minX === Infinity) return null;
+    
+    // Add padding so nodes aren't hard against the screen edge
+    const padX = 300;
+    const padY = 300;
+    return { 
+        minX: minX - padX, 
+        minY: minY - padY, 
+        maxX: maxX + padX, 
+        maxY: maxY + padY 
+    };
+}
+
+function clampCamera(cam) {
+    if (!worldBounds || !canvas) return;
+    const rect = canvas.getBoundingClientRect();
+    const vw = rect.width;
+    const vh = rect.height;
+
+    const minCamX = vw - (worldBounds.maxX * cam.zoom);
+    const maxCamX = -(worldBounds.minX * cam.zoom);
+    const minCamY = vh - (worldBounds.maxY * cam.zoom);
+    const maxCamY = -(worldBounds.minY * cam.zoom);
+
+    if (minCamX <= maxCamX) {
+        cam.x = Math.max(minCamX, Math.min(maxCamX, cam.x));
+    } else {
+        cam.x = (vw - (worldBounds.maxX + worldBounds.minX) * cam.zoom) / 2;
+    }
+
+    if (minCamY <= maxCamY) {
+        cam.y = Math.max(minCamY, Math.min(maxCamY, cam.y));
+    } else {
+        cam.y = (vh - (worldBounds.maxY + worldBounds.minY) * cam.zoom) / 2;
+    }
+}
+
 // ═════════════════════════════════════════════════════
 //  PROGRESS SYSTEM
 // ═════════════════════════════════════════════════════
@@ -245,6 +292,8 @@ function resizeCanvas() {
     canvas.height = rect.height * dpr;
     canvas.style.width  = rect.width  + 'px';
     canvas.style.height = rect.height + 'px';
+    clampCamera(camera);
+    if (targetCamera) clampCamera(targetCamera);
     needsRender = true;
 }
 
@@ -622,6 +671,7 @@ function setupCanvasEvents() {
         if (isDragging) {
             camera.x = dragCameraStart.x + (e.clientX - dragStart.x);
             camera.y = dragCameraStart.y + (e.clientY - dragStart.y);
+            clampCamera(camera);
             needsRender = true;
             return;
         }
@@ -658,10 +708,11 @@ function setupCanvasEvents() {
         const rect = canvas.getBoundingClientRect();
         const mx = e.clientX - rect.left, my = e.clientY - rect.top;
         const factor = e.deltaY > 0 ? 0.92 : 1.08;
-        const nz = Math.max(0.18, Math.min(3.5, camera.zoom * factor));
+        const nz = Math.max(0.35, Math.min(3.5, camera.zoom * factor));
         camera.x = mx - (mx - camera.x) * (nz / camera.zoom);
         camera.y = my - (my - camera.y) * (nz / camera.zoom);
         camera.zoom = nz;
+        clampCamera(camera);
         targetCamera = null;
         needsRender = true;
     }, { passive: false });
@@ -691,6 +742,7 @@ function setupCanvasEvents() {
             const t = e.touches[0];
             camera.x = dragCameraStart.x + (t.clientX - dragStart.x);
             camera.y = dragCameraStart.y + (t.clientY - dragStart.y);
+            clampCamera(camera);
             needsRender = true;
         } else if (e.touches.length === 2) {
             const [a, b] = [e.touches[0], e.touches[1]];
@@ -698,10 +750,11 @@ function setupCanvasEvents() {
             const mid  = { x: (a.clientX + b.clientX) / 2, y: (a.clientY + b.clientY) / 2 };
             const rect = canvas.getBoundingClientRect();
             const mx = mid.x - rect.left, my = mid.y - rect.top;
-            const nz = Math.max(0.18, Math.min(3.5, camera.zoom * (dist / lastDist)));
+            const nz = Math.max(0.35, Math.min(3.5, camera.zoom * (dist / lastDist)));
             camera.x = mx - (mx - camera.x) * (nz / camera.zoom) + (mid.x - lastMid.x);
             camera.y = my - (my - camera.y) * (nz / camera.zoom) + (mid.y - lastMid.y);
             camera.zoom = nz;
+            clampCamera(camera);
             lastDist = dist;
             lastMid = mid;
             needsRender = true;
@@ -747,6 +800,7 @@ function fitAll(animate) {
     const cx = minX + tw / 2, cy = minY + th / 2;
 
     const cam = { x: vw / 2 - cx * zoom, y: vh / 2 - cy * zoom, zoom };
+    clampCamera(cam);
     if (animate) targetCamera = cam;
     else { Object.assign(camera, cam); needsRender = true; }
 }
@@ -759,6 +813,7 @@ function focusNode(id, animate = true) {
     const vw = rect.width - panelW, vh = rect.height;
     const zoom = Math.max(camera.zoom, 0.85);
     const cam = { x: vw / 2 - (p.x + p.w / 2) * zoom, y: vh / 2 - (p.y + p.h / 2) * zoom, zoom };
+    clampCamera(cam);
     if (animate) targetCamera = cam;
     else { Object.assign(camera, cam); needsRender = true; }
 }
@@ -944,6 +999,16 @@ function setupUIEvents() {
     });
 
     document.getElementById('reset-btn').addEventListener('click', () => fitAll(true));
+    document.getElementById('clear-progress-btn').addEventListener('click', () => {
+        if (confirm("Are you sure you want to completely wipe all your progress? This cannot be undone.")) {
+            completed.clear();
+            saveProgress();
+            updateNodeStates();
+            updateProgressUI();
+            closeDetailPanel();
+            showToast("All progress wiped", "var(--color-push)");
+        }
+    });
 
     document.addEventListener('keydown', e => {
         if (e.key === 'Escape' && selectedNode) hidePanel();

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "pushup",
+    "name": "Standard Push-up",
+    "description": "Basic chest and tricep push.",
+    "prerequisites": [],
+    "unlocks": ["diamond-pushup", "pike-pushup"]
+  },
+  {
+    "id": "pike-pushup",
+    "name": "Pike Push-up",
+    "description": "Hips high, pushing overhead to build shoulder strength.",
+    "prerequisites": ["pushup"],
+    "unlocks": ["handstand-pushup"]
+  },
+  {
+    "id": "handstand-pushup",
+    "name": "Handstand Push-up",
+    "description": "Vertical pushing against a wall or freestanding.",
+    "prerequisites": ["pike-pushup"],
+    "unlocks": []
+  }
+]

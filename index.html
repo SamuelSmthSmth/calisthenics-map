@@ -9,12 +9,52 @@
 </head>
 <body>
 
-    <header>
-        <h1>Calisthenics Journey</h1>
-        <p>Click an exercise to see prerequisites and unlocks.</p>
-    </header>
+    <div id="app-container">
+        <!-- Left Sidebar -->
+        <aside id="sidebar">
+            <h1>Calisthenics Journey</h1>
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Search a skill...">
+                <ul id="search-results"></ul>
+            </div>
+        </aside>
 
-    <div id="tree-container"></div>
+        <!-- Main Tree Area -->
+        <main>
+            <div id="tree-container"></div>
+        </main>
+
+        <div id="map-controls">
+            <button id="reset-view" class="control-btn">🎯 Reset View</button>
+        </div>
+
+        <div id="map-legend">
+            <h4>Legend</h4>
+            <div><span class="color-box push"></span> Push</div>
+            <div><span class="color-box pull"></span> Pull</div>
+            <div><span class="color-box core"></span> Core</div>
+            <div><span class="color-box legs"></span> Legs</div>
+            
+            <div class="shape-legend">
+                <strong>Box</strong> = Static<br>
+                <strong>Ellipse</strong> = Dynamic<br>
+                <strong>Hexagon</strong> = Balance
+            </div>
+        </div>
+
+        <div id="right-panel" class="hidden">
+            <button id="close-panel">&times;</button>
+            <h2 id="detail-title">Select a skill</h2>
+            <span id="detail-category" class="badge">Category</span>
+            <span class="badge tier-badge">Tier <span id="detail-tier">1</span></span>
+            <p id="detail-desc"></p>
+            
+            <div id="recommended-section" class="hidden">
+                <h3>Recommended for this:</h3>
+                <div id="detail-recommended"></div>
+            </div>
+        </div>
+    </div>
 
     <script src="app.js"></script>
 </body>

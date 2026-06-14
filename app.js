@@ -46,6 +46,7 @@ let dragStart    = { x: 0, y: 0 };
 let dragCameraStart = { x: 0, y: 0 };
 let needsRender  = true;
 let worldBounds  = null;
+let isLightMode  = false;
 
 // ═════════════════════════════════════════════════════
 //  INITIALISATION
@@ -75,6 +76,12 @@ async function init() {
             }
         });
     });
+
+    const savedTheme = localStorage.getItem('calisthenics-map-theme');
+    if (savedTheme === 'light') {
+        isLightMode = true;
+        document.body.classList.add('light-theme');
+    }
 
     loadProgress();
     computeLayout();
@@ -377,7 +384,7 @@ function drawLanes(c) {
         const x = START_X + (t - 1) * TIER_SPACING + NODE_W / 2;
         c.save();
         c.font = '700 10px Inter, sans-serif';
-        c.fillStyle = 'rgba(255,255,255,0.06)';
+        c.fillStyle = isLightMode ? 'rgba(0,0,0,0.3)' : 'rgba(255,255,255,0.06)';
         c.textAlign = 'center';
         c.textBaseline = 'bottom';
         c.fillText(`TIER ${t}`, x, (laneInfo.Push?.yStart ?? 0) - 8);
@@ -416,7 +423,9 @@ function drawEdges(c) {
                 c.shadowBlur = 10;
             }
         } else {
-            c.strokeStyle = `rgba(255,255,255,${fromState === 'completed' ? 0.1 : 0.055})`;
+            c.strokeStyle = isLightMode 
+                ? `rgba(0,0,0,${fromState === 'completed' ? 0.2 : 0.08})`
+                : `rgba(255,255,255,${fromState === 'completed' ? 0.1 : 0.055})`;
             c.lineWidth = 1.2;
         }
 
@@ -503,19 +512,19 @@ function drawSingleNode(c, ex, pos, state, hovered, selected, dimmed) {
     let bg, border, text, glow = null;
     switch (state) {
         case 'locked':
-            bg     = 'rgba(18,22,36,0.7)';
-            border = 'rgba(255,255,255,0.05)';
-            text   = 'rgba(255,255,255,0.22)';
+            bg     = isLightMode ? 'rgba(243,244,246,0.8)' : 'rgba(18,22,36,0.7)';
+            border = isLightMode ? 'rgba(0,0,0,0.08)' : 'rgba(255,255,255,0.05)';
+            text   = isLightMode ? 'rgba(0,0,0,0.4)' : 'rgba(255,255,255,0.22)';
             break;
         case 'available':
             bg     = `rgba(${col.r},${col.g},${col.b},0.10)`;
             border = `rgba(${col.r},${col.g},${col.b},0.45)`;
-            text   = 'rgba(255,255,255,0.88)';
+            text   = isLightMode ? 'rgba(0,0,0,0.8)' : 'rgba(255,255,255,0.88)';
             break;
         case 'completed':
             bg     = `rgba(${col.r},${col.g},${col.b},0.20)`;
             border = `rgb(${col.r},${col.g},${col.b})`;
-            text   = '#ffffff';
+            text   = isLightMode ? 'rgba(0,0,0,0.95)' : '#ffffff';
             glow   = `rgb(${col.r},${col.g},${col.b})`;
             break;
     }
@@ -523,7 +532,7 @@ function drawSingleNode(c, ex, pos, state, hovered, selected, dimmed) {
     if (hovered || selected) {
         border = `rgb(${col.r},${col.g},${col.b})`;
         bg     = `rgba(${col.r},${col.g},${col.b},0.16)`;
-        text   = '#ffffff';
+        text   = isLightMode ? 'rgba(0,0,0,0.95)' : '#ffffff';
         glow   = `rgb(${col.r},${col.g},${col.b})`;
     }
 
@@ -561,7 +570,7 @@ function drawSingleNode(c, ex, pos, state, hovered, selected, dimmed) {
         c.arc(bx, by, 7, 0, Math.PI * 2);
         c.fillStyle = `rgb(${col.r},${col.g},${col.b})`;
         c.fill();
-        c.fillStyle = '#080c14';
+        c.fillStyle = isLightMode ? '#ffffff' : '#080c14';
         c.font = 'bold 9px Inter, sans-serif';
         c.textAlign = 'center';
         c.textBaseline = 'middle';
@@ -996,6 +1005,13 @@ function setupUIEvents() {
 
     document.getElementById('legend-btn').addEventListener('click', () => {
         document.getElementById('legend-panel').classList.toggle('hidden');
+    });
+
+    document.getElementById('theme-btn').addEventListener('click', () => {
+        isLightMode = !isLightMode;
+        document.body.classList.toggle('light-theme', isLightMode);
+        localStorage.setItem('calisthenics-map-theme', isLightMode ? 'light' : 'dark');
+        needsRender = true;
     });
 
     document.getElementById('reset-btn').addEventListener('click', () => fitAll(true));
